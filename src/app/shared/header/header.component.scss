@@ -1,12 +1,19 @@
+.logo {
+  width: 4rem;
+  img {
+    width: 4rem;
+  }
+}
 .menu-items-container {
   width: 100%;
 }
+
 .menu-items {
   display: flex;
   justify-content: center;
 }
 .header-nav-button {
-  padding: 1rem 2rem;
+  padding: .875rem 2rem;
   border-radius: 0;
   border: 0;
 }
@@ -26,23 +33,25 @@
   color: #fafafa;
 }
 
+
 .sidenav {
   height: 100%;
   position: fixed;
   z-index: 1000;
   top: 55px;
   left: 0;
-  background-color: #bebfcb;
+  background-color: #673ab7;
+  color: #ffffff;
   overflow-x: hidden;
-  transition: 1s;
-  padding: 1rem 0;
-  width: 260px;
+  transition: .5s;
+  width: 0;
 }
 
 @media(max-width: 767px) {
   .sidenav {
     .header-nav-button {
       display: block;
+      padding: .5rem 1rem;
     }
   }
 }

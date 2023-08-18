@@ -10,6 +10,7 @@ import { AboutusComponent } from './feature/aboutus/aboutus.component';
 import { ServicesComponent } from './feature/services/services.component';
 import { ContactComponent } from './feature/contact/contact.component';
 import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     NgbCarouselModule,
     NgbModule

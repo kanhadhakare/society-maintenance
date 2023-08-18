@@ -3,6 +3,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subject, filter, takeUntil } from 'rxjs';
+import { BreakpointService } from 'src/app/services/breakpoint.service';
 
 @Component({
   selector: 'app-header',
@@ -11,22 +12,15 @@ import { Subject, filter, takeUntil } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
 
-  destroyed = new Subject<void>();
-  currentScreenSize!: string;
-  sideNavOpen = true;
-  currentUrl!: string;
+  private destroyed = new Subject<void>();
+  public currentScreenSize!: string;
+  public sideNavOpen = false;
+  public currentUrl!: string;
 
-  // Create a map to display breakpoint names for demonstration purposes.
-  displayNameMap = new Map([
-    [Breakpoints.XSmall, 'XSmall'], //599.9 and less
-    [Breakpoints.Small, 'Small'], // 600 to 960
-    [Breakpoints.Medium, 'Medium'], // 960 to 1280
-    [Breakpoints.Large, 'Large'], // 1280 to 1920
-    [Breakpoints.XLarge, 'XLarge'], // 1920 and above
-  ]);
+
 
   constructor(
-    private readonly breakpointObserver: BreakpointObserver,
+    private readonly breakpointService: BreakpointService,
     private readonly router: Router,
     public dialog: MatDialog) {
       this.checkBreakPoint();
@@ -47,20 +41,12 @@ export class HeaderComponent implements OnInit {
     this.sideNavOpen = false;
   }
 
-  checkBreakPoint(): void {
-    this.breakpointObserver.observe([
-      Breakpoints.XSmall,
-      Breakpoints.Small,
-      Breakpoints.Medium,
-      Breakpoints.Large,
-      Breakpoints.XLarge,
-    ]).pipe(takeUntil(this.destroyed)).subscribe(result => {
-      for (const query of Object.keys(result.breakpoints)) {
-        if (result.breakpoints[query]) {
-          this.currentScreenSize = this.displayNameMap.get(query) ?? 'Unknown';
-        }
-      }
-    });
+  private checkBreakPoint(): void {
+    this.breakpointService.getDeviceSize$().pipe(
+      takeUntil(this.destroyed)
+    ).subscribe(deviceBreakpoint => {
+      this.currentScreenSize = deviceBreakpoint;
+    })
   }
 
   public navigateToPath(path: string): void {

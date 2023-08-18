@@ -1,10 +1,14 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <div class="menu-items-container">
     <nav class="menu-items" *ngIf="
         currentScreenSize === 'Large' || currentScreenSize === '';
         else mobile_nav_content
       ">
-      <div class="left-items">Logo text</div>
+      <div class="left-items">
+        <div class="logo">
+          <img src="./assets/Ecmez-logo.png" alt="">
+        </div>
+      </div>
       <div class="center-items">
         <a href="javascript:void(0)" (click)="navigateToPath('home-page')" [class.active]="currentUrl === 'home-page'"
           class="header-nav-button" mat-button>Home</a>
@@ -28,7 +32,7 @@
   <button mat-icon-button (click)="openSideNav($event)">
     <mat-icon>menu</mat-icon>
   </button>
-  <div id="mySidenav" class="sidenav" *ngIf="sideNavOpen">
+  <div color="primary" id="mySidenav" class="sidenav" [ngStyle]="{'width': sideNavOpen ? '260px' : '0px'}">
     <a href="javascript:void(0)" (click)="navigateToPath('home-page')" [class.active]="currentUrl === 'home-page'"
       class="header-nav-button" mat-button>Home</a>
     <a href="javascript:void(0)" (click)="navigateToPath('services')" [class.active]="currentUrl === 'services'"
