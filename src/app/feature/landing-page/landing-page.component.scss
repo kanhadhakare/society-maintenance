@@ -1,0 +1,29 @@
+.main-container {
+  padding: 3rem;
+
+  .title {
+    text-align: center;
+  }
+
+  .description {
+    font-size: 1rem;
+    padding: 0 2rem;
+  }
+
+}
+
+@media(max-width: 767px) {
+  .main-container {
+    padding: 1rem;
+
+    .title {
+      margin-bottom: 1rem;
+      font-size: 3rem;
+    }
+  }
+
+  .title {
+    padding-bottom: 1rem;
+  }
+
+}

@@ -1,0 +1,42 @@
+<mat-toolbar>
+  <div class="menu-items-container">
+    <nav class="menu-items" *ngIf="
+        currentScreenSize === 'Large' || currentScreenSize === '';
+        else mobile_nav_content
+      ">
+      <div class="left-items">Logo text</div>
+      <div class="center-items">
+        <a href="javascript:void(0)" (click)="navigateToPath('home-page')" [class.active]="currentUrl === 'home-page'"
+          class="header-nav-button" mat-button>Home</a>
+        <a href="javascript:void(0)" (click)="navigateToPath('services')" [class.active]="currentUrl === 'services'"
+          class="header-nav-button" mat-button>Services</a>
+        <a href="javascript:void(0)" (click)="navigateToPath('about')" [class.active]="currentUrl === 'about'"
+          class="header-nav-button" mat-button>About us</a>
+        <a href="javascript:void(0)" (click)="navigateToPath('contacts')" [class.active]="currentUrl === 'contacts'"
+          class="header-nav-button" mat-button>Contacts
+        </a>
+      </div>
+      <div class="right-container">
+        <a routerLink="/login" class="header-nav-button" mat-button color="primary">Login</a>
+        <a routerLink="/register" class="header-nav-button" mat-button color="primary">Register</a>
+      </div>
+    </nav>
+  </div>
+</mat-toolbar>
+
+<ng-template #mobile_nav_content>
+  <button mat-icon-button (click)="openSideNav($event)">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div id="mySidenav" class="sidenav" *ngIf="sideNavOpen">
+    <a href="javascript:void(0)" (click)="navigateToPath('home-page')" [class.active]="currentUrl === 'home-page'"
+      class="header-nav-button" mat-button>Home</a>
+    <a href="javascript:void(0)" (click)="navigateToPath('services')" [class.active]="currentUrl === 'services'"
+      class="header-nav-button" mat-button>Services</a>
+    <a href="javascript:void(0)" (click)="navigateToPath('about')" [class.active]="currentUrl === 'about'"
+      class="header-nav-button" mat-button>About us</a>
+    <a href="javascript:void(0)" (click)="navigateToPath('contacts')" [class.active]="currentUrl === 'contacts'"
+      class="header-nav-button" mat-button>Contacts
+    </a>
+  </div>
+</ng-template>

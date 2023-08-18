@@ -1,0 +1,22 @@
+.services-container {
+  width: 100%;
+}
+
+.carousel-conatiner {
+  margin: auto;
+  width: 90%;
+}
+
+.picsum-img-wrapper {
+  img {
+    width: 100%;
+    height: calc(100% - 3rem);
+  }
+}
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  bottom: 0 !important;
+  transform: translate(-50%, -50%);
+}
