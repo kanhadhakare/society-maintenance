@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: () => import('./feature/landing-page/landing-page.module').then(m => m.LandingPageModule)
   },
   {
+    path: 'register',
+    loadChildren: () => import('./feature/register/register.module').then(m => m.RegisterModule)
+  },
+  {
     path: 'about',
     component: AboutusComponent
   },

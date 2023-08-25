@@ -21,8 +21,8 @@
         </a>
       </div>
       <div class="right-container">
-        <a routerLink="/login" class="header-nav-button" mat-button color="primary">Login</a>
-        <a routerLink="/register" class="header-nav-button" mat-button color="primary">Register</a>
+        <a routerLink="/login" class="header-nav-button" mat-button color="accent">Login</a>
+        <a routerLink="/register" class="header-nav-button" mat-button color="accent">Register</a>
       </div>
     </nav>
   </div>
@@ -42,5 +42,7 @@
     <a href="javascript:void(0)" (click)="navigateToPath('contacts')" [class.active]="currentUrl === 'contacts'"
       class="header-nav-button" mat-button>Contacts
     </a>
+    <a href="javascript:void(0)" (click)="navigateToPath('login')"[class.active]="currentUrl === 'login'" class="header-nav-button" mat-button color="accent">Login</a>
+    <a href="javascript:void(0)" (click)="navigateToPath('register')" [class.active]="currentUrl === 'register'" class="header-nav-button" mat-button color="accent">Register</a>
   </div>
 </ng-template>
