@@ -13,7 +13,9 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ForgetPasswordComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,

@@ -12,9 +12,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { ContactComponent } from './feature/contact/contact.component';
-import { ForgetPasswordComponent } from './feature/forget-password/forget-password.component';
 import { LandingPageComponent } from './feature/landing-page/landing-page.component';
-import { ServicesComponent } from './feature/services/services.component';
+import { ServicesComponent } from './feature/services-component/services.component';
 import { SharedModule } from './shared/shared.module';
 
 
@@ -24,8 +23,7 @@ import { SharedModule } from './shared/shared.module';
     LandingPageComponent,
     AboutusComponent,
     ServicesComponent,
-    ContactComponent,
-    ForgetPasswordComponent
+    ContactComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { shareReplay } from 'rxjs';
-import { LoginData } from '../model/userData.model';
+
 import { ApiUrls } from '../constants/api-urls.constant';
 import { RestApiService } from './rest-api.service';
+import { LoginData } from '../model/userData.model';
 
 @Injectable({
   providedIn: 'root'
