@@ -15,10 +15,6 @@ const routes: Routes = [
     loadChildren: () => import('./feature/landing-page/landing-page.module').then(m => m.LandingPageModule)
   },
   {
-    path: 'register',
-    loadChildren: () => import('./feature/register/register.module').then(m => m.RegisterModule)
-  },
-  {
     path: 'about',
     component: AboutusComponent
   },
@@ -29,6 +25,18 @@ const routes: Routes = [
   {
     path: 'contacts',
     component: ContactComponent
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./feature/register/register.module').then(m => m.RegisterModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./feature/login/login.module').then(m => m.LoginModule)
+  },
+  {
+    path: 'forget-password',
+    loadChildren: () => import('./feature/forget-password/forget-password.module').then(m => m.ForgetPasswordModule)
   }
 ];
 

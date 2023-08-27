@@ -1,16 +1,22 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LandingPageComponent } from './feature/landing-page/landing-page.component';
-import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AboutusComponent } from './feature/aboutus/aboutus.component';
-import { ServicesComponent } from './feature/services/services.component';
-import { ContactComponent } from './feature/contact/contact.component';
-import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserModule } from '@angular/platform-browser';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
+import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { AboutusComponent } from './feature/aboutus/aboutus.component';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthInterceptor } from './interceptors/auth-interceptor';
+import { ContactComponent } from './feature/contact/contact.component';
+import { ForgetPasswordComponent } from './feature/forget-password/forget-password.component';
+import { LandingPageComponent } from './feature/landing-page/landing-page.component';
+import { ServicesComponent } from './feature/services/services.component';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     LandingPageComponent,
     AboutusComponent,
     ServicesComponent,
-    ContactComponent
+    ContactComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -27,9 +34,20 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgbCarouselModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: MAT_RADIO_DEFAULT_OPTIONS,
+      useValue: { color: 'primary' },
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
