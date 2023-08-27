@@ -1,8 +1,9 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subject, filter, takeUntil } from 'rxjs';
+import { HeaderDataModel, HeaderMenuDataModel, LandingPageHeaderData } from 'src/app/model/headerData.model';
 import { BreakpointService } from 'src/app/services/breakpoint.service';
 
 @Component({
@@ -11,6 +12,8 @@ import { BreakpointService } from 'src/app/services/breakpoint.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  @Input() headerData: HeaderDataModel = LandingPageHeaderData;
 
   private destroyed = new Subject<void>();
   public currentScreenSize!: string;

@@ -2,28 +2,23 @@
   <div class="menu-items-container">
     <nav class="menu-items" *ngIf="
         currentScreenSize === 'Large' || currentScreenSize === '';
-        else mobile_nav_content
-      ">
+        else mobile_nav_content">
       <div class="left-items">
         <div class="logo">
           <img src="./assets/Ecmez-logo.png" alt="">
         </div>
       </div>
-      <div class="center-items">
-        <a href="javascript:void(0)" (click)="navigateToPath('home-page')" [class.active]="currentUrl === 'home-page'"
-          class="header-nav-button" mat-button>Home</a>
-        <a href="javascript:void(0)" (click)="navigateToPath('services')" [class.active]="currentUrl === 'services'"
-          class="header-nav-button" mat-button>Services</a>
-        <a href="javascript:void(0)" (click)="navigateToPath('about')" [class.active]="currentUrl === 'about'"
-          class="header-nav-button" mat-button>About us</a>
-        <a href="javascript:void(0)" (click)="navigateToPath('contacts')" [class.active]="currentUrl === 'contacts'"
-          class="header-nav-button" mat-button>Contacts
-        </a>
-      </div>
-      <div class="right-container">
-        <a routerLink="/login" class="header-nav-button" mat-button color="accent">Login</a>
-        <a routerLink="/register" class="header-nav-button" mat-button color="accent">Register</a>
-      </div>
+
+      <ng-container *ngIf="headerData">
+        <div class="center-items" *ngIf="headerData.centerAlign.length > 0">
+          <a *ngFor="let item of headerData.centerAlign" [routerLink]="'/' + item.redirectTo" routerLinkActive="active"
+            class="header-nav-button" mat-button>{{item.menuName}}</a>
+        </div>
+        <div class="right-container" *ngIf="headerData.rightAlign.length > 0">
+          <a *ngFor="let item of headerData.rightAlign" [routerLink]="'/' + item.redirectTo" routerLinkActive="active"
+            class="header-nav-button" color="accent" mat-button>{{item.menuName}}</a>
+        </div>
+      </ng-container>
     </nav>
   </div>
 </mat-toolbar>
@@ -31,18 +26,15 @@
 <ng-template #mobile_nav_content>
   <button mat-icon-button (click)="openSideNav($event)">
     <mat-icon>menu</mat-icon>
-  </button>
-  <div color="primary" id="mySidenav" class="sidenav" [ngStyle]="{'width': sideNavOpen ? '260px' : '0px'}">
-    <a href="javascript:void(0)" (click)="navigateToPath('home-page')" [class.active]="currentUrl === 'home-page'"
-      class="header-nav-button" mat-button>Home</a>
-    <a href="javascript:void(0)" (click)="navigateToPath('services')" [class.active]="currentUrl === 'services'"
-      class="header-nav-button" mat-button>Services</a>
-    <a href="javascript:void(0)" (click)="navigateToPath('about')" [class.active]="currentUrl === 'about'"
-      class="header-nav-button" mat-button>About us</a>
-    <a href="javascript:void(0)" (click)="navigateToPath('contacts')" [class.active]="currentUrl === 'contacts'"
-      class="header-nav-button" mat-button>Contacts
-    </a>
-    <a href="javascript:void(0)" (click)="navigateToPath('login')"[class.active]="currentUrl === 'login'" class="header-nav-button" mat-button color="accent">Login</a>
-    <a href="javascript:void(0)" (click)="navigateToPath('register')" [class.active]="currentUrl === 'register'" class="header-nav-button" mat-button color="accent">Register</a>
+  </button>  <div *ngIf="headerData" color="primary" id="mySidenav" class="sidenav"
+    [ngStyle]="{'width': sideNavOpen ? '260px' : '0px'}">
+    <ng-container *ngIf="headerData.centerAlign.length > 0">
+      <a *ngFor="let item of headerData.centerAlign" [routerLink]="'/' + item.redirectTo" routerLinkActive="active"
+        class="header-nav-button" mat-button>{{item.menuName}}</a>
+    </ng-container>
+    <ng-container *ngIf="headerData.rightAlign.length > 0">
+      <a *ngFor="let item of headerData.rightAlign" [routerLink]="'/' + item.redirectTo" routerLinkActive="active"
+        class="header-nav-button" color="accent" mat-button>{{item.menuName}}</a>
+    </ng-container>
   </div>
 </ng-template>
