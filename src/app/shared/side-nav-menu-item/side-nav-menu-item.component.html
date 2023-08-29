@@ -1,0 +1,26 @@
+
+<div class="menu-item menu" *ngIf="menuItem!.sub_menu!.length === 0">
+  <a class="menu-item-anchor" [routerLink]="[menuItem.link]" routerLinkActive="active">
+    <mat-icon>{{menuItem.icon}}</mat-icon>
+    <span class="link-name">{{ menuItem.link_name }}</span>
+  </a>
+</div>
+
+<div *ngIf="menuItem!.sub_menu!.length > 0" class="menu dropdown-title" (click)="showSubmenu($event)">
+  <a class="menu-item-anchor" href="javascript:void(0)">
+    <mat-icon>{{menuItem.icon}}</mat-icon>
+    <span class="link-name">{{menuItem.link_name}}</span>
+    <mat-icon *ngIf="!openSubmenu">keyboard_arrow_down</mat-icon>
+  <mat-icon *ngIf="openSubmenu">keyboard_arrow_up</mat-icon>
+  </a>
+
+  <ul *ngIf="openSubmenu">
+    <li *ngFor="let item of menuItem.sub_menu">
+      <a [routerLink]="[item.link]"  routerLinkActive="active" (click)="$event.stopPropagation()">
+        <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
+        <span class="link-name">{{ item.link_name }}</span>
+      </a>
+    </li>
+  </ul>
+
+</div>

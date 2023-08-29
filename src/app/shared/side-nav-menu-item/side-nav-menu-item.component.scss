@@ -1,0 +1,38 @@
+.menu-item {
+  background: rgba(212, 216, 238, 0.15);
+  color: #3f51b5;
+  padding: 1rem;
+  .active & {
+    background: rgba(63, 81, 181, 0.15);
+  }
+  .link-name {
+   margin: 0 .25rem;
+
+  }
+}
+.menu-item-anchor {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.dropdown-title {
+  padding: 1rem;
+  background: rgba(212, 216, 238, 0.15);
+  ul {
+    list-style: none;
+    li {
+      padding: .75rem 0;
+      a {
+        text-decoration: none;
+      }
+    }
+    li:hover {
+      background: rgba(63, 81, 181, 0.15);
+    }
+  }
+}
+.menu:hover {
+  background: rgba(63, 81, 181, 0.15);
+}
+

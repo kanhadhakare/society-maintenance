@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './feature/aboutus/aboutus.component';
 import { ServicesComponent } from './feature/services-component/services.component';
 import { ContactComponent } from './feature/contact/contact.component';
@@ -37,11 +37,19 @@ const routes: Routes = [
   {
     path: 'forget-password',
     loadChildren: () => import('./feature/forget-password/forget-password.module').then(m => m.ForgetPasswordModule)
+  },
+  {
+    path: 'super-admin',
+    loadChildren: () => import('./feature/super-admin/super-admin.module').then(m => m.SuperAdminModule)
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(
+      routes
+    )
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
