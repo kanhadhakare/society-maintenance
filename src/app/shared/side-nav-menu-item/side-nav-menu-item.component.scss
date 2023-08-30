@@ -5,10 +5,6 @@
   .active & {
     background: rgba(63, 81, 181, 0.15);
   }
-  .link-name {
-   margin: 0 .25rem;
-
-  }
 }
 .menu-item-anchor {
   display: flex;
@@ -16,13 +12,19 @@
   text-decoration: none;
 }
 
+.link-name {
+  margin: 0 .25rem;
+ }
+
 .dropdown-title {
   padding: 1rem;
   background: rgba(212, 216, 238, 0.15);
   ul {
     list-style: none;
+    padding: 0;
+    margin-top: 0.25rem;
     li {
-      padding: .75rem 0;
+      padding: 0.75rem 0 0.75rem 1.5rem;
       a {
         text-decoration: none;
       }

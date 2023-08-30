@@ -8,6 +8,6 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'socity-management';
+  title = 'society-management';
 
 }

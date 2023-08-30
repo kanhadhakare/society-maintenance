@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
 
   loginSubmit() {
     if(this.loginForm.valid) {
-      this.auth.login(this.loginForm.value.email as string, this.loginForm.value.password as string, this.loginForm.value.rememberMe as boolean)
+      // this.auth.login(this.loginForm.value.email as string, this.loginForm.value.password as string, this.loginForm.value.rememberMe as boolean)
+      this.router.navigate(['./super-admin'])
     }
   }
 

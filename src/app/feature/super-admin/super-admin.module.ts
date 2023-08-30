@@ -4,8 +4,6 @@ import { SuperAdminComponent } from './super-admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CustumerOnbordingComponent } from './custumer-onbording/custumer-onbording.component';
-import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
   {
@@ -14,7 +12,7 @@ const routes: Routes = [
     children: [
       {
         path: 'customer',
-        loadChildren: () => import('./custumer-onbording/custumer-onbording.module').then(m => m.CustumerOnbordingModule)
+        loadChildren: () => import('../custumer-onbording/custumer-onbording.module').then(m => m.CustumerOnbordingModule)
       }
     ]
   },
@@ -23,8 +21,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    SuperAdminComponent,
-    CustumerOnbordingComponent
+    SuperAdminComponent
   ],
   imports: [
     CommonModule,

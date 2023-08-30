@@ -7,7 +7,7 @@
 </div>
 
 <div *ngIf="menuItem!.sub_menu!.length > 0" class="menu dropdown-title" (click)="showSubmenu($event)">
-  <a class="menu-item-anchor" href="javascript:void(0)">
+  <a style="margin-left: .25rem;" class="menu-item-anchor" href="javascript:void(0)">
     <mat-icon>{{menuItem.icon}}</mat-icon>
     <span class="link-name">{{menuItem.link_name}}</span>
     <mat-icon *ngIf="!openSubmenu">keyboard_arrow_down</mat-icon>

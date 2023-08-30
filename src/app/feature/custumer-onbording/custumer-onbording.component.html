@@ -1,0 +1,69 @@
+<section class="custumer-onboarding">
+  <form (ngSubmit)="onSubmit()" [formGroup]="societyBasicDetailsForm">
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Customer Name</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="customerName"
+        placeholder="Customer Name"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Customer Email</mat-label>
+      <input
+        matInput
+        type="email"
+        formControlName="customerEmail"
+        placeholder="Email"
+        [pattern]="emailRegex"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Customer Mobile</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="customerMobile"
+        placeholder="Customer Mobile number"
+        [pattern]="mobileRegex"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Socity Name</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="societyName"
+        placeholder="Socity Name"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Socity Official Email</mat-label>
+      <input
+        matInput
+        type="email"
+        formControlName="societyEmail"
+        placeholder="Socity Official Email"
+        [pattern]="emailRegex"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Customer Mobile</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="societyPhone"
+        placeholder="Society Mobile number"
+        [pattern]="mobileRegex"
+      />
+    </mat-form-field>
+
+  </form>
+</section>

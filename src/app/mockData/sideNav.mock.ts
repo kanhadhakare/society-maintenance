@@ -2,6 +2,12 @@ import { SideNavMenuItem } from "../model/sideNavMenuData.model";
 
 export const sidenavData: SideNavMenuItem[] = [
   {
+    link_name: "Home",
+    link: "/home",
+    icon: "home",
+    sub_menu: []
+  },
+  {
     link_name: "Customer",
     link: "/super-admin/customer",
     icon: "computer",

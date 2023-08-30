@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
     lastName: new FormControl('', Validators.required),
     mobileNumber: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
-    socityOrOwner: new FormControl('', Validators.required),
+    societyOrOwner: new FormControl('', Validators.required),
   });
 
   public readonly emailRegex = emailRegex;
