@@ -4,6 +4,7 @@ import { SuperAdminComponent } from './super-admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SocityBasicDetailsModule } from '../socity-basic-details/socity-basic-details.module';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
+    SocityBasicDetailsModule,
     RouterModule.forChild(routes)
   ]
 })

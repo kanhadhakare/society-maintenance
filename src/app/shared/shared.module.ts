@@ -20,7 +20,8 @@ import { SideNavMenuItemComponent } from './side-nav-menu-item/side-nav-menu-ite
   ], exports: [
     HeaderComponent,
     MaterialExampleModule,
-    SideNavMenuItemComponent
+    SideNavMenuItemComponent,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

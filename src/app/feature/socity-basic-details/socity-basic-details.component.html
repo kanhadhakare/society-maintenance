@@ -1,0 +1,99 @@
+<section class="custumer-basic-details">
+  <form (ngSubmit)="onSubmit()" [formGroup]="societyBasicDetailsForm">
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Customer Name</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="customerName"
+        placeholder="Customer Name"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Customer Email</mat-label>
+      <input
+        matInput
+        type="email"
+        formControlName="customerEmail"
+        placeholder="Email"
+        [pattern]="emailRegex"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Customer Mobile</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="customerMobile"
+        placeholder="Customer Mobile number"
+        [pattern]="mobileRegex"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Socity Name</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="societyName"
+        placeholder="Socity Name"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Socity Official Email</mat-label>
+      <input
+        matInput
+        type="email"
+        formControlName="societyEmail"
+        placeholder="Socity Official Email"
+        [pattern]="emailRegex"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Society Mobile</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="societyPhone"
+        placeholder="Society Mobile number"
+        [pattern]="mobileRegex"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Society Registration Number</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="societyRegistrationNumber"
+        placeholder="Society Registration Number"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Society Gst Number</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="societyGstNumber"
+        placeholder="Society Gst Number"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Society Registration Number</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="societyRegistrationNumber"
+        placeholder="Society Registration Number"
+      />
+    </mat-form-field>
+  </form>
+
+</section>

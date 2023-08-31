@@ -1,40 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { emailRegex, mobileRegex } from 'src/app/constants/regex.constant';
+import { StepperOrientation } from '@angular/cdk/stepper';
+import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subject, takeUntil } from 'rxjs';
+import { BreakpointService } from 'src/app/services/breakpoint.service';
+import { SocityBasicDetailsComponent } from '../socity-basic-details/socity-basic-details.component';
 
 @Component({
   selector: 'app-custumer-onbording',
   templateUrl: './custumer-onbording.component.html',
   styleUrls: ['./custumer-onbording.component.scss']
 })
-export class CustumerOnbordingComponent implements OnInit {
+export class CustumerOnbordingComponent implements OnInit, OnDestroy, AfterViewInit  {
 
-  public societyBasicDetailsForm = this.fb.group({
-    customerName: ['', Validators.required],
-    customerEmail: ['', Validators.required],
-    customerMobile: [null, Validators.required],
-    societyName: ['', Validators.required],
-    societyEmail: [null, Validators.required],
-    societyPhone: [null, Validators.required],
-    societyRegistrationNumber: [null, Validators.required],
-    societyGstNumber: [null, Validators.required],
-    societyAddress: this.fb.group({
-      sector: ['', Validators.required],
-      city: ['', Validators.required],
-      state: [''],
-      pincode: [null, Validators.required]
-    })
-  })
 
-  public emailRegex = emailRegex;
-  public mobileRegex = mobileRegex
-  constructor(private readonly fb: FormBuilder) { }
+  private destroyed$ = new Subject();
+
+  public currentScreenSize!: string;
+  stepperOrientation!: StepperOrientation;
+  public societyBasicDetailsForm!: FormGroup;
+
+  @ViewChild('stepOne') socityBasicDetailsComponent!: SocityBasicDetailsComponent;
+
+  constructor(
+    private bpService: BreakpointService
+  )
+    {
+      this.bpService.getDeviceSize$().pipe(
+        takeUntil(this.destroyed$)
+      ).subscribe({
+        next: (deviceBreakpoint) => {
+          this.currentScreenSize = deviceBreakpoint;
+          this.stepperOrientation = deviceBreakpoint === 'small' ? 'vertical' : 'horizontal';
+        }
+      })
+    }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    console.log(this.societyBasicDetailsForm.value);
+
+  ngOnDestroy(): void {
+    this.destroyed$.next(false);
+    this.destroyed$.complete();
+  }
+
+  ngAfterViewInit(): void {
+    this.societyBasicDetailsForm = this.socityBasicDetailsComponent.societyBasicDetailsForm;
   }
 
 }

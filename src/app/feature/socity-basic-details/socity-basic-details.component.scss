@@ -1,0 +1,25 @@
+.custumer-basic-details {
+  display: flex;
+  margin: 2rem auto;
+  width: 90%;
+}
+
+.input-full-width {
+  min-width: 25rem;
+  max-width: 100%;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+@media(max-width: 767px) {
+  .custumer-basic-details {
+    width: 100%;
+    margin: unset;
+    padding: 1rem .5rem;
+  }
+  .input-full-width {
+    min-width: 20rem;
+    width: 100%;
+    margin: unset;
+  }
+}
