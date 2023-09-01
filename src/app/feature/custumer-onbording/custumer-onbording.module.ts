@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SocityBasicDetailsModule } from '../socity-basic-details/socity-basic-details.module';
+import { SocityBlockDetailsModule } from '../socity-block-details/socity-block-details.module';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     SharedModule,
     SocityBasicDetailsModule,
+    SocityBlockDetailsModule,
     RouterModule.forChild(routes)
   ]
 })

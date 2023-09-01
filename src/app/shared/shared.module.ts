@@ -5,12 +5,14 @@ import { MaterialExampleModule } from 'src/material-example.module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SideNavMenuItemComponent } from './side-nav-menu-item/side-nav-menu-item.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    SideNavMenuItemComponent
+    SideNavMenuItemComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { SideNavMenuItemComponent } from './side-nav-menu-item/side-nav-menu-ite
     HeaderComponent,
     MaterialExampleModule,
     SideNavMenuItemComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LoaderComponent
   ]
 })
 export class SharedModule { }

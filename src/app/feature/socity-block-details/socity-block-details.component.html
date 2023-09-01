@@ -1,0 +1,27 @@
+<section class="society-tower-details">
+  <form (ngSubmit)="onSubmit()" [formGroup]="societyBlockDetailsForm">
+
+    <mat-form-field class="input-full-width">
+      <mat-label>Select Number of Tower</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="numberOfTowers"
+        placeholder="Customer Name"
+      />
+    </mat-form-field>
+
+    <!-- <mat-form-field class="input-full-width">
+      <mat-label>Customer Name</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="customerName"
+        placeholder="Customer Name"
+      />
+    </mat-form-field> -->
+
+
+
+  </form>
+</section>

@@ -1,18 +1,20 @@
-<mat-stepper
-  class="example-stepper"
-  [orientation]="stepperOrientation"
-  liner
->
-<mat-step [stepControl]="societyBasicDetailsForm" label="Fill Society Details">
-  <app-socity-basic-details #socityBasicDetailsComponent></app-socity-basic-details>
-  <div>
-    <button mat-button matStepperNext>Next</button>
-  </div>
-</mat-step>
+<mat-stepper class="example-stepper" [orientation]="stepperOrientation" liner>
+  <mat-step [stepControl]="societyBasicDetailsForm">
+    <ng-template matStepLabel>Fill Society Details</ng-template>
+    <ng-template matStepContent>
+      <app-socity-basic-details
+        #socityBasicDetailsComponent
+      ></app-socity-basic-details>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </ng-template>
+  </mat-step>
 
-<mat-step></mat-step>
-
-
+  <mat-step>
+    <ng-template matStepLabel>Fill Tower Details</ng-template>
+    <ng-template>
+      <app-socity-block-details></app-socity-block-details>
+    </ng-template>
+  </mat-step>
 </mat-stepper>
-
-

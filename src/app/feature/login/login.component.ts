@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { emailRegex } from 'src/app/constants/regex.constant';
+import { UserAccountDetails, UserData } from 'src/app/model/userData.model';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   });
 
   public readonly emailRegex = emailRegex;
+  public isLoading = false;
   // public readonly mobileRegex = mobileRegex;
 
   constructor(private auth: AuthService, private router: Router) { }
@@ -32,8 +34,21 @@ export class LoginComponent implements OnInit {
 
   loginSubmit() {
     if(this.loginForm.valid) {
-      // this.auth.login(this.loginForm.value.email as string, this.loginForm.value.password as string, this.loginForm.value.rememberMe as boolean)
-      this.router.navigate(['./super-admin'])
+      this.isLoading = true;
+      this.auth.login(this.loginForm.value.email as string, this.loginForm.value.password as string, this.loginForm.value.rememberMe as boolean)
+      .subscribe({
+        next: (data: UserAccountDetails): void => {
+          this.isLoading = false;
+          debugger;
+          if(data.data.module === 'admin') {
+            this.router.navigate(['./super-admin/customer']);
+          }
+        },
+        error: (errorData) => {
+          console.log(errorData);
+          this.isLoading = false;
+        }
+      })
     }
   }
 

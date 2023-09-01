@@ -20,6 +20,7 @@ const routes: Routes = [
   ],
   imports: [
     SharedModule,
+    CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ]

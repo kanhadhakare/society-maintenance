@@ -16,7 +16,6 @@ import { LandingPageComponent } from './feature/landing-page/landing-page.compon
 import { ServicesComponent } from './feature/services-component/services.component';
 import { SharedModule } from './shared/shared.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
